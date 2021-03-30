@@ -1,5 +1,8 @@
 package com.app.resteasyjackson;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class ApiResponse {
 
     private String message;
