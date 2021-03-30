@@ -67,8 +67,8 @@ jobs:
       - name: 'Upload uber-jar'
         uses: actions/upload-artifact@v2
         with:
-          name: projeto-0.0.1-SNAPSHOT-runner-${{matrix.label}}.jar
-          path: target/projeto-0.0.1-SNAPSHOT-runner.jar
+          name: app-1.0.0-SNAPSHOT-runner-${{matrix.label}}.jar
+          path: target/app-1.0.0-SNAPSHOT-runner.jar
 
       - name: 'Get Upload File - URL'
         uses: actions/download-artifact@v2
@@ -85,8 +85,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.get-upload-url.outputs.UPLOAD_URL }}
-          asset_path: ./target/projeto-0.0.1-SNAPSHOT-runner.jar
-          asset_name: projeto-0.0.1-SNAPSHOT-runner-${{matrix.label}}.jar
+          asset_path: ./target/app-1.0.0-SNAPSHOT-runner.jar
+          asset_name: app-1.0.0-SNAPSHOT-runner-${{matrix.label}}.jar
           asset_content_type: application/java-archive
 
       - name: 'Setup GraalVM Environment'
@@ -106,8 +106,8 @@ jobs:
       - name: 'Upload native artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: projeto-0.0.1-SNAPSHOT-runner-${{matrix.label}}
-          path: target/projeto-0.0.1-SNAPSHOT-runner
+          name: app-1.0.0-SNAPSHOT-runner-${{matrix.label}}
+          path: target/app-1.0.0-SNAPSHOT-runner
 
       - name: Upload Release Asset Native ${{matrix.label}}
         uses: actions/upload-release-asset@v1
@@ -115,6 +115,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.get-upload-url.outputs.UPLOAD_URL }}
-          asset_path: ./target/projeto-0.0.1-SNAPSHOT-runner
-          asset_name: projeto-0.0.1-SNAPSHOT-runner-${{matrix.label}}
+          asset_path: ./target/app-1.0.0-SNAPSHOT-runner
+          asset_name: app-1.0.0-SNAPSHOT-runner-${{matrix.label}}
           asset_content_type: application/octet-stream
